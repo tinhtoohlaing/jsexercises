@@ -1,20 +1,42 @@
 
 
-function printTriangle(line, ch="*") {
+function printTriangle(side, ch = "*", border = true) {
     var space = " ";
 
-    for (i = 1; i < (2 * line); i += 2) {
-        console.log(space.repeat(((2 * line) - i - 1) / 2) + ch.repeat(i) + space.repeat(((2*line) - i - 1) / 2));
+    for (i = 1; i < (2 * side); i += 2) {
+        if (!border || i == 1 || i == (side * 2 - 1)) {
+            console.log(space.repeat(((2 * side) - i - 1) / 2) + ch.repeat(i));
+        } else {
+            console.log(space.repeat(((2 * side) - i - 1) / 2) + ch + space.repeat(i - 2) + ch);
+        }
     }
 }
 
-printTriangle(3)
+function printSquare(side, ch = "*",border=true) {
+    var space = " ";
+
+
+    for (i = 1; i <= side; i += 1) {
+        if (!border || i == 1 || i == side) {
+            console.log(ch.repeat(side));
+        } else {
+            console.log(ch + space.repeat(side - 2) + ch);
+        }
+    }
+}
+
+
+printSquare(7, "#", true)
 console.log("\n")
-printTriangle(5, "#")
-console.log("\n")
-printTriangle(10, "=")
+printSquare(5, "@", false)
 
 
 
 
 
+/*
+    #
+   # #
+  #   #
+ #     #
+######### */
